@@ -207,7 +207,7 @@ const Home = ({ data }) => {
                   className="btn"
                   onClick={login}
                 >
-                  {isAuthenticated ? <ScrollLink to='mint' spy={true}>Mint <MdOutlineArrowDownward /></ScrollLink> : <Account />}
+                  {isAuthenticated ? <ScrollLink to='mint' spy={true} offset={-50}>Mint <MdOutlineArrowDownward /></ScrollLink> : <Account />}
                 </motion.button>
                 {/* <button onClick={notify}>Notify!</button> */}
 
