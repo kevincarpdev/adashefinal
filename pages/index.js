@@ -325,8 +325,9 @@ const Home = ({ data }) => {
 
         <section id="logos">
           <span className='subheader'><h3>Exchanges &amp; Wallets</h3></span>
-          <div className="container-lg">
+          <div className="relative container-lg">
             <Swiper
+              loop={true}
               spaceBetween={50}
               freeMode={true}
               modules={[FreeMode, A11y]}
