@@ -526,9 +526,17 @@ footer ul li a:hover {
 .recharts-legend-wrapper {
   @apply !relative mx-auto;
 }
+li.recharts-legend-item {
+  @apply mb-4;
+}
 span.recharts-legend-item-text {
-  @apply text-lg !text-white mb-1 inline-block;
+  @apply text-lg !text-white inline-block;
+  line-height: 1;
   font-size: 1.3rem;
+}
+.recharts-legend-item svg.recharts-surface {
+  position: relative;
+  top: -3px;
 }
 #logos {
   @apply relative py-24 bg-white;
