@@ -565,7 +565,7 @@ section .subheader h3 {
 }
 
 .accordion-content {
-  @apply text-lg pt-4 text-left pl-10 pr-24;
+  @apply text-lg pt-4 text-left pl-10 pr-16 md:pl-10 md:pr-24;
 }
 .accordion-content a {
   color: inherit;
