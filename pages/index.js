@@ -209,7 +209,7 @@ const Home = ({ data }) => {
                 >
                   {isAuthenticated ? <ScrollLink to='mint' spy={true}>Mint <MdOutlineArrowDownward /></ScrollLink> : <Account />}
                 </motion.button>
-                <button onClick={notify}>Notify!</button>
+                {/* <button onClick={notify}>Notify!</button> */}
 
               </div>
             </div>
@@ -320,12 +320,13 @@ const Home = ({ data }) => {
           >
             <div className="marquee-img">
               <Image
-                src={Uniswap}
-                alt="Uniswap"
+                src={Metamask2}
+                alt="MetaMask"
                 quality="85"
                 layout="intrinsic"
               />
             </div>
+
 
             <div className="marquee-img">
               <Image
@@ -344,16 +345,14 @@ const Home = ({ data }) => {
                 layout="intrinsic"
               />
             </div>
-
             <div className="marquee-img">
               <Image
-                src={Metamask}
-                alt="MetaMask"
+                src={Uniswap}
+                alt="Uniswap"
                 quality="85"
                 layout="intrinsic"
               />
             </div>
-
             <div className="marquee-img">
               <Image
                 src={PalRemit}
