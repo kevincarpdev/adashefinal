@@ -623,10 +623,12 @@ section#info {
 .swiper-wrapper {
   @apply place-items-center;
 }
-.swiper-slide {
-  max-width: 250px;
+.logoSlide {
+  @apply relative mx-auto;
 }
-
+.logoSlide {
+  max-width: 125px;
+}
 /* Responsive Media Styles */
 @media screen and (max-width: 768px) {
   .buyCard {
@@ -642,7 +644,7 @@ section#info {
   #bottomGraphic {
     top: -9px;
   }
-  .swiper-slide {
+  /* .logoSlide {
     max-width: 125px;
-  }
+  } */
 }

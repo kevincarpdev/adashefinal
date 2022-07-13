@@ -327,15 +327,14 @@ const Home = ({ data }) => {
           <span className='subheader'><h3>Exchanges &amp; Wallets</h3></span>
           <div className="relative container-lg">
             <Swiper
-              loop={true}
-              spaceBetween={50}
+              spaceBetween={20}
               freeMode={true}
               modules={[FreeMode, A11y]}
               className="marquee"
               breakpoints={{
                 0: {
                   width: 0,
-                  slidesPerView: 3,
+                  slidesPerView: 2,
                 },
                 768: {
                   width: 768,
@@ -346,71 +345,96 @@ const Home = ({ data }) => {
                   slidesPerView: 8,
                 },
               }}
+              slidesPerView={2}
 
             >
               <SwiperSlide>
-                <Image
-                  src={DYDX}
-                  alt="DYDX"
-                  quality="85"
-                  layout="intrinsic"
-                />
+                <div className="logoSlide">
+                  <Image
+                    src={DYDX}
+                    alt="DYDX"
+                    quality="85"
+                    layout="intrinsic"
+                  />
+                </div>
+
               </SwiperSlide>
               <SwiperSlide>
-                <Image
-                  src={Metamask2}
-                  alt="MetaMask"
-                  quality="85"
-                  layout="intrinsic"
-                />
+                <div className="logoSlide">
+                  <Image
+                    src={Metamask2}
+                    alt="MetaMask"
+                    quality="85"
+                    layout="intrinsic"
+                  />
+                </div>
+
               </SwiperSlide>
               <SwiperSlide>
-                <Image
-                  src={CoinBase}
-                  alt="CoinBase"
-                  quality="85"
-                  layout="intrinsic"
-                />
+                <div className="logoSlide">
+                  <Image
+                    src={CoinBase}
+                    alt="CoinBase"
+                    quality="85"
+                    layout="intrinsic"
+                  />
+                </div>
+
               </SwiperSlide>
               <SwiperSlide>
-                <Image
-                  src={Uniswap}
-                  alt="Uniswap"
-                  quality="85"
-                  layout="intrinsic"
-                />
+                <div className="logoSlide">
+                  <Image
+                    src={Uniswap}
+                    alt="Uniswap"
+                    quality="85"
+                    layout="intrinsic"
+                  />
+                </div>
+
               </SwiperSlide>
               <SwiperSlide>
-                <Image
-                  src={PalRemit}
-                  alt="PalRemit"
-                  quality="85"
-                  layout="intrinsic"
-                />
+                <div className="logoSlide">
+                  <Image
+                    src={PalRemit}
+                    alt="PalRemit"
+                    quality="85"
+                    layout="intrinsic"
+                  />
+                </div>
+
               </SwiperSlide>
               <SwiperSlide>
-                <Image
-                  src={Pancake}
-                  alt="Pancake"
-                  quality="85"
-                  layout="intrinsic"
-                />
+                <div className="logoSlide">
+                  <Image
+                    src={Pancake}
+                    alt="Pancake"
+                    quality="85"
+                    layout="intrinsic"
+                  />
+                </div>
+
               </SwiperSlide>
               <SwiperSlide>
-                <Image
-                  src={TrustWallet}
-                  alt="TrustWallet"
-                  quality="85"
-                  layout="intrinsic"
-                />
+                <div className="logoSlide">
+                  <Image
+                    src={TrustWallet}
+                    alt="TrustWallet"
+                    quality="85"
+                    layout="intrinsic"
+                  />
+                </div>
+
               </SwiperSlide>
               <SwiperSlide>
-                <Image
-                  src={WalletConnect}
-                  alt="WalletConnect"
-                  quality="85"
-                  layout="intrinsic"
-                />
+                <div className="logoSlide">
+                  <Image
+                    src={WalletConnect}
+                    alt="WalletConnect"
+                    quality="85"
+                    layout="intrinsic"
+                  />
+                </div>
+
               </SwiperSlide>
             </Swiper>
           </div>
