@@ -550,28 +550,29 @@ section .subheader h3 {
 .accordion-list {
   @apply w-full px-4 md:px-0 text-left max-w-screen-lg mx-auto;
 }
-
+.accordion-layout {
+  @apply flex flex-col justify-start items-start;
+}
 .accordion-title {
   @apply text-xl text-white pl-3 py-3;
   line-height: 1.5;
 }
 
 .accordion {
-  @apply flex flex-row justify-between p-2 mt-8 mx-auto align-middle place-items-center hover:cursor-pointer w-full;
+  @apply flex flex-row justify-between py-2 px-6 mt-8 mx-auto align-middle place-items-center hover:cursor-pointer w-full;
   border-radius: 6px;
-  background-color: var(--purple);
+  background-color: #040d21;
 }
 
 .accordion-content {
-  @apply text-lg;
-  max-width: 65ch;
-  margin: 0 auto;
+  @apply text-lg pt-4 text-left pl-10 pr-24;
 }
 .accordion-content a {
   color: inherit;
 }
 .accordion-icon {
-  @apply flex items-center justify-center text-white;
+  @apply flex items-center justify-center;
+  color: #fefefe;
 }
 section#mint {
   @apply pb-24;

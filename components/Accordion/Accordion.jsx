@@ -5,7 +5,7 @@ const Accordion = () => {
     const [activeIndex, setActiveIndex] = useState(2);
 
   return (
-      <div className='flex flex-col justify-center items-center'>
+      <div className='accordion-layout'>
           <AccordionLayout 
             title="What are the tokens used for?"
             index={1}

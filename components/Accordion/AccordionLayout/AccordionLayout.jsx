@@ -21,7 +21,7 @@ const AccordionLayout = ({ title, children, index, activeIndex, setActiveIndex }
         </div>
 
         {(activeIndex === index) && (
-          <div className="accordion-content shadow-3xl rounded-2xl shadow-cyan-500/50 p-4 mb-6">
+          <div className="accordion-content">
             {children}
           </div>
         )}
