@@ -163,7 +163,7 @@ main {
 
 .btn {
   @apply mt-4 no-underline;
-  padding: 15px 15px 10px 25px;
+  padding: 15px 25px 10px 25px;
   border-radius: 4px;
   background: linear-gradient(
     135deg,
