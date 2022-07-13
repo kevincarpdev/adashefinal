@@ -548,7 +548,7 @@ section .subheader h3 {
   @apply text-4xl uppercase;
 }
 .accordion-list {
-  @apply w-full px-4 md:px-0 text-left;
+  @apply w-full px-4 md:px-0 text-left max-w-screen-lg mx-auto;
 }
 
 .accordion-title {

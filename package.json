@@ -127,5 +127,11 @@
     "entrypoints": [
       "pages"
     ]
-  }
+  },
+  "name": "adashe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/kevincarpdev/adashe.git",
+  "author": "Kevin Carpenter <carpenter.kevin@gmail.com>",
+  "license": "MIT"
 }
