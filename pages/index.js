@@ -35,7 +35,14 @@ import Accordion from '../components/Accordion/Accordion';
 import Wallet from "../components/Wallet";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
 
+// import required modules
+import { FreeMode, Pagination, A11y } from "swiper";
 
 // import Ramper from "../components/Ramper";
 
@@ -116,6 +123,12 @@ const Home = ({ data }) => {
   //   receiver: "0x0000000000000000000000000000000000000000",
   //   type: "erc20",
   //   contractAddress: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+  // });
+
+  // const swiper = new Swiper('.swiper', {
+  //   // configure Swiper to use modules
+  //   modules: [Navigation, Pagination],
+
   // });
 
   return (
@@ -312,80 +325,95 @@ const Home = ({ data }) => {
 
         <section id="logos">
           <span className='subheader'><h3>Exchanges &amp; Wallets</h3></span>
-          <Marquee
-            pauseOnHover={false}
-            speed={20}
-            gradient={true}
-            className="marquee"
-          >
-            <div className="marquee-img">
-              <Image
-                src={Metamask2}
-                alt="MetaMask"
-                quality="85"
-                layout="intrinsic"
-              />
-            </div>
+          <div className="container-lg">
+            <Swiper
+              spaceBetween={50}
+              freeMode={true}
+              modules={[FreeMode, A11y]}
+              className="marquee"
+              breakpoints={{
+                0: {
+                  width: 0,
+                  slidesPerView: 3,
+                },
+                768: {
+                  width: 768,
+                  slidesPerView: 5,
+                },
+                1200: {
+                  width: 1200,
+                  slidesPerView: 8,
+                },
+              }}
 
+            >
+              <SwiperSlide>
+                <Image
+                  src={DYDX}
+                  alt="DYDX"
+                  quality="85"
+                  layout="intrinsic"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src={Metamask2}
+                  alt="MetaMask"
+                  quality="85"
+                  layout="intrinsic"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src={CoinBase}
+                  alt="CoinBase"
+                  quality="85"
+                  layout="intrinsic"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src={Uniswap}
+                  alt="Uniswap"
+                  quality="85"
+                  layout="intrinsic"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src={PalRemit}
+                  alt="PalRemit"
+                  quality="85"
+                  layout="intrinsic"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src={Pancake}
+                  alt="Pancake"
+                  quality="85"
+                  layout="intrinsic"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src={TrustWallet}
+                  alt="TrustWallet"
+                  quality="85"
+                  layout="intrinsic"
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Image
+                  src={WalletConnect}
+                  alt="WalletConnect"
+                  quality="85"
+                  layout="intrinsic"
+                />
+              </SwiperSlide>
+            </Swiper>
+          </div>
 
-            <div className="marquee-img">
-              <Image
-                src={DYDX}
-                alt="DYDX"
-                quality="85"
-                layout="intrinsic"
-              />
-            </div>
-
-            <div className="marquee-img">
-              <Image
-                src={CoinBase}
-                alt="CoinBase"
-                quality="85"
-                layout="intrinsic"
-              />
-            </div>
-            <div className="marquee-img">
-              <Image
-                src={Uniswap}
-                alt="Uniswap"
-                quality="85"
-                layout="intrinsic"
-              />
-            </div>
-            <div className="marquee-img">
-              <Image
-                src={PalRemit}
-                alt="PalRemit"
-                quality="85"
-                layout="intrinsic"
-              />
-            </div>
-            <div className="marquee-img">
-              <Image
-                src={Pancake}
-                alt="Pancake"
-                quality="85"
-                layout="intrinsic"
-              />
-            </div>
-            <div className="marquee-img">
-              <Image
-                src={TrustWallet}
-                alt="TrustWallet"
-                quality="85"
-                layout="intrinsic"
-              />
-            </div>
-            <div className="marquee-img">
-              <Image
-                src={WalletConnect}
-                alt="WalletConnect"
-                quality="85"
-                layout="intrinsic"
-              />
-            </div>
-          </Marquee>
         </section>
 
         <section id="faq">
