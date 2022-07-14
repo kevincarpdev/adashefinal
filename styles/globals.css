@@ -74,12 +74,6 @@ p {
   @apply text-lg mb-0;
 }
 
-h1,
-h2,
-h3 {
-  color: #fff;
-}
-
 h1 {
   @apply text-5xl leading-snug;
 }
