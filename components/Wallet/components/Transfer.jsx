@@ -51,7 +51,7 @@ const styles = {
 function Transfer() {
   const { Moralis } = useMoralis();
   const [tx, setTx] = useState();
-  const [amount, setAmount] = useState();
+  const [amount=0, setAmount] = useState();
   const [isPending, setIsPending] = useState(false);
   const [tokenBuyAmount, setTokenBuyAmount] = useState();
 
@@ -112,11 +112,12 @@ function Transfer() {
             className="tokenAmount"
             size="large"
             prefix={<CreditCardOutlined />}
+            defaultValue={0}
+            onFocus = {(e) => e.target.value = ""}
             onChange={(e) => {
               setAmount(`${e.target.value}`)
               setTokenBuyAmount(`${e.target.value}` * 770)
             }}
-            value={amount ? amount : 0}
           />
           <h3 className="maticTotalAmount"><span>MATIC</span></h3>
         </div>

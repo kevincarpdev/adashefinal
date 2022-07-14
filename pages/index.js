@@ -179,23 +179,6 @@ const Home = ({ data }) => {
         progress: undefined,
       });
     }
-    else {
-      // authenticate()
-      //   .then(function (user) {
-
-      //   })
-      //   .catch(function (error) {
-      //     toast.error(error, {
-      //       position: "top-right",
-      //       autoClose: 5000,
-      //       hideProgressBar: false,
-      //       closeOnClick: true,
-      //       pauseOnHover: true,
-      //       draggable: true,
-      //       progress: undefined,
-      //     })
-      //   })
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
@@ -238,7 +221,6 @@ const Home = ({ data }) => {
 
   useEffect(() => {
     getGeoInfo();
-
   }, [geoState]);
 
   return (
