@@ -84,6 +84,7 @@ function Transfer() {
           progress: undefined,
         });
         setAmount(0)
+        setTokenBuyAmount(0)
         setIsPending(false);
     }).catch((e) => {
       toast.error(e.message, {
