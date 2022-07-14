@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import cn from 'classnames'
 import Head from "next/head";
-import { useMoralis, useWeb3Transfer } from "react-moralis";
+import { useMoralis } from "react-moralis";
 import { Card, Modal } from "antd";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import mainLogo from '../public/logo.png'
 import menuLogo from '../public/menuLogo.png'
 import Image from 'next/image'
-import PageBreak from "../public/PageBreak.svg";
 import * as Scroll from 'react-scroll';
 import PageBreakBottom from "../public/PageBreakBottom.svg";
 import { motion } from "framer-motion";
@@ -20,12 +19,9 @@ import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 import { MdSpaceDashboard, MdClose, MdGeneratingTokens, MdOutlineArrowDownward } from 'react-icons/md';
 import { FaDiscord, FaTelegramPlane, FaMediumM, FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { useSpring, animated } from "react-spring";
-import Link from 'next/link';
-import Marquee from "react-fast-marquee";
 import Uniswap from '../public/uniswap.png'
 import DYDX from '../public/dydx.png'
 import CoinBase from '../public/coinbase.png'
-import Metamask from '../public/metamask.png'
 import Metamask2 from '../public/metamask2.png'
 import PalRemit from '../public/palremit.png'
 import Pancake from '../public/pancake.png'
@@ -52,7 +48,7 @@ const Home = ({ data }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isBuyModalVisible, setIsBuyModalVisible] = useState(false);
   const [openBar, setOpenBar] = useState();
-  const { authenticate, isAuthenticated, Moralis } = useMoralis();
+  const { authenticate, isAuthenticated, isAuthenticating, user, account, logout, Moralis } = useMoralis();
   let ScrollLink = Scroll.Link;
 
   const login = async () => {
@@ -60,10 +56,46 @@ const Home = ({ data }) => {
 
       await authenticate()
         .then(function (user) {
-          console.log(Moralis.User.current().get("ethAddress"));
+
         })
         .catch(function (error) {
-          console.log(error);
+          toast.error(error, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        });
+    }
+  }
+
+  const logOut = async () => {
+    if (isAuthenticated) {
+      await logout()
+        .then(function (success) {
+          toast.info('Logged out.', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        })
+        .catch(function (error) {
+          toast.error('ERROR. Could not log out.', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
         });
     }
   }
@@ -97,16 +129,50 @@ const Home = ({ data }) => {
     from: { left: "-105%" },
     left: openBar ? "0" : "-105%"
   });
-  const notify = () =>
-    toast.warn('ADSE is only available on via MATIC. Please switch to the Polygon network in order to purchase ADSE.', {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      toast.success('Wallet successfully authenticated', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    else {
+      authenticate()
+        .then(function (user) {
+
+          //const web3Provider = Moralis.enableWeb3();
+
+          //console.log("web3Provider", web3Provider)
+          // toast.warn('ADSE is only available on via MATIC. Please switch to the Polygon network in order to purchase ADSE.', {
+          //   position: "top-right",
+          //   autoClose: 5000,
+          //   hideProgressBar: false,
+          //   closeOnClick: true,
+          //   pauseOnHover: true,
+          //   draggable: true,
+          //   progress: undefined,
+          // });
+        })
+        .catch(function (error) {
+          toast.error(error, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          })
+        })
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
 
   useEffect(() => {
     const cachedRef = ref.current
@@ -125,11 +191,6 @@ const Home = ({ data }) => {
   //   contractAddress: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
   // });
 
-  // const swiper = new Swiper('.swiper', {
-  //   // configure Swiper to use modules
-  //   modules: [Navigation, Pagination],
-
-  // });
 
   return (
     <div>
@@ -213,17 +274,40 @@ const Home = ({ data }) => {
               <h1>Buy Adashe (ADSE)</h1>
               <div>
                 <span className='subheader'>Adashe is the primary utility token of our ecosystem and will immediately enable you to participate in our staking rewards program as well as our liquidity mining program. All pools will be deployed when the token sale ends.</span>
-                <p><span className="price"><span className="highlight">1 ADSE = $0.00087 USD</span></span></p>
-                <motion.button
-                  whileHover={{ scale: 1.2 }}
-                  whileTap={{ scale: 1.0 }}
-                  className="btn"
-                  onClick={login}
-                >
-                  {isAuthenticated ? <ScrollLink to='mint' spy={true} offset={-50}>Mint <MdOutlineArrowDownward /></ScrollLink> : <Account />}
-                </motion.button>
-                {/* <button onClick={notify}>Notify!</button> */}
+                <p><span className="price"><span className="highlight">1 MATIC = 770 ADSE</span></span></p>
 
+                {isAuthenticated ?
+                  <>
+                    <motion.button
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 1.0 }}
+                      className="btn secondary"
+                      disabled={isAuthenticating}
+                      onClick={logOut}
+                    >
+                      Logout
+                    </motion.button>
+                    <motion.button
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 1.0 }}
+                      className="btn"
+                    >
+
+                      <ScrollLink to='mint' spy={true} offset={-50}>Mint <MdOutlineArrowDownward /></ScrollLink>
+                    </motion.button>
+                  </>
+
+                  :
+                  <motion.button
+                    whileHover={{ scale: 1.2 }}
+                    whileTap={{ scale: 1.0 }}
+                    className="btn"
+                    onClick={login}
+                  >
+                    <Account />
+                  </motion.button>
+
+                }
               </div>
             </div>
             <div className="logo">
@@ -571,7 +655,7 @@ const Home = ({ data }) => {
           }}
           bodyStyle={{ padding: "15px" }}
         >
-          <DEX chain="eth" />
+          <DEX chain="matic" />
         </Card>
       </Modal>
       <Modal
@@ -602,7 +686,6 @@ const Home = ({ data }) => {
     </div >
   )
 }
-
 
 export async function getStaticProps() {
 

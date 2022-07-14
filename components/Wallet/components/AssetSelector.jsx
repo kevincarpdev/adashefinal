@@ -25,6 +25,7 @@ export default function AssetSelector({ setAsset, style }) {
   function handleChange(value) {
     const token = fullBalance.find((token) => token.token_address === value);
     setAsset(token);
+    console.log(token)
   }
 
   return (
