@@ -8,6 +8,10 @@ import AssetSelector from "./AssetSelector";
 import { toast } from 'react-toastify';
 import { motion } from "framer-motion";
 import cn from 'classnames'
+import Polygon from '../../../public/polygon.svg'
+import { FiArrowDown } from 'react-icons/fi';
+import LogoColored from '../../../public/logocolored.png'
+import Image from 'next/image'
 
 const styles = {
   card: {
@@ -99,21 +103,36 @@ function Transfer() {
   return (
     <div style={styles.card}>
       <div style={styles.tranfer}>
-        <h3>{tokenBuyAmount ? tokenBuyAmount : 0} ADSE</h3>
-        <div style={styles.select}>
-          <div style={styles.textWrapper}>
-            <Text strong>MATIC:</Text>
-          </div>
-          <Input
+        <div className="maticAmount">
+          <input
+            className="tokenAmount"
             size="large"
             prefix={<CreditCardOutlined />}
             onChange={(e) => {
               setAmount(`${e.target.value}`)
               setTokenBuyAmount(`${e.target.value}` * 770)
             }}
-            value={amount}
+            value={amount ? amount : 0}
           />
+          <h3 className="maticTotalAmount">MATIC</h3>
         </div>
+        
+          <div className="polygon">
+            <Polygon />
+          </div>
+          <div className="downArrow">
+            <FiArrowDown />
+          </div>
+          <div className="logoColored">
+            <Image
+              src={LogoColored}
+              alt="Logo"
+              quality="85"
+              layout="intrinsic"
+            />
+          </div>
+          
+        <h3 className="totalAmount">{tokenBuyAmount ? tokenBuyAmount : 0} ADSE</h3>
           <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 1.0 }}

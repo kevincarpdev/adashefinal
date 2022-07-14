@@ -2,7 +2,7 @@
   --primary: #8193b2;
   --fontHeader: "Montserrat", sans-serif;
   --fontBody: "Hind", sans-serif;
-  --purple: #a59244;
+  --purple: #6244a5;
   --blue: #275dba;
   --darkBlue: #143265;
   --darkPurple: #322253;
@@ -641,6 +641,51 @@ section#info {
 }
 .trustWallet {
   max-width: 80px;
+}
+.polygon {
+  @apply mx-auto;
+  max-width: 100px;
+}
+.maticAmount {
+  @apply flex flex-row justify-center place-items-center mx-auto my-4;
+  max-width: 200px;
+}
+.tokenAmount {
+  @apply text-center focus-visible:outline-0;
+  color: rgba(49, 50, 51, 1);
+  border: 0;
+  font-size: 2rem;
+  min-width: 0;
+  width: auto !important;
+  height: auto !important;
+  min-width: 0 !important;
+  font-size: 1.75rem;
+  color: rgba(49, 50, 51, 1);
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+  font-family: var(--fontHeader);
+  font-weight: 700;
+}
+
+.downArrow {
+  @apply my-6;
+}
+.downArrow svg {
+  width: 80px;
+  height: auto;
+  stroke: rgba(49, 50, 51, 1);
+}
+.totalAmount {
+  color: rgba(49, 50, 51, 1);
+  font-size: 2rem;
+}
+.logoColored {
+  @apply mx-auto;
+  width: 120px;
+}
+.maticTotalAmount {
+  @apply inline-block m-0 relative;
+  top: -4px;
 }
 
 /* Responsive Media Styles */
