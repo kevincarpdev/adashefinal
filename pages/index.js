@@ -146,18 +146,6 @@ const Home = ({ data }) => {
       authenticate()
         .then(function (user) {
 
-          //const web3Provider = Moralis.enableWeb3();
-
-          //console.log("web3Provider", web3Provider)
-          // toast.warn('ADSE is only available on via MATIC. Please switch to the Polygon network in order to purchase ADSE.', {
-          //   position: "top-right",
-          //   autoClose: 5000,
-          //   hideProgressBar: false,
-          //   closeOnClick: true,
-          //   pauseOnHover: true,
-          //   draggable: true,
-          //   progress: undefined,
-          // });
         })
         .catch(function (error) {
           toast.error(error, {
