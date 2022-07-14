@@ -182,15 +182,6 @@ const Home = ({ data }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
-  useEffect(() => {
-    const cachedRef = ref.current
-    const observer = new IntersectionObserver(
-      ([e]) => setStickyNav(e.intersectionRatio < 1),
-      { threshold: [1] }
-    )
-    observer.observe(cachedRef)
-    return () => observer.unobserve(cachedRef)
-  }, [ref])
 
   const [geoState, setGeoState] = useState({
     ip: "",
@@ -288,16 +279,6 @@ const Home = ({ data }) => {
 
       <header id="hero" className="hero">
 
-        <Sticky onStateChange={handleStateChange}>
-          <div className={cn(!stickyNav ? 'stuck' : '', 'tertiary-nav')}>
-            <div className="container">
-              <ul>
-                <li><a onClick={() => setIsBuyModalVisible(true)}>Buy</a></li>
-                <li><a onClick={() => setOpenSideBar(true)}>Exchange</a></li>
-              </ul>
-            </div>
-          </div>
-        </Sticky>
 
         <div className="container">
           <div className="hero-grid">
@@ -575,19 +556,7 @@ const Home = ({ data }) => {
             </div>
           </div>
         </section>
-        {/* 
-        <section className="tab-container">
-          <div className="menuLogo">
-            <ScrollLink to='hero'>
-              <Image
-                src={menuLogo}
-                alt="Logo"
-                quality="85"
-                layout="intrinsic"
-              />
-            </ScrollLink>
-          </div>
-        </section> */}
+
       </main>
 
       <footer id="footer">
@@ -640,40 +609,6 @@ const Home = ({ data }) => {
         </ul>
       </footer>
 
-      {/* 
-      <animated.div style={{ left: left }} className="sidebar">
-        <button className="menuButton" onClick={() => setOpenBar(openBar => !openBar)}>
-          {!openBar ? <MdSpaceDashboard /> : <MdClose />}
-        </button>
-
-        <div className="sidebar-menu">
-          <div className="tile">
-            <ScrollLink to='supply' activeClass='selected' spy={true}>
-              <MdGeneratingTokens />
-              Supply
-            </ScrollLink>
-          </div>
-          <div className="tile">
-            <ScrollLink to='terms' activeClass='selected' spy={true}>
-              <MdGeneratingTokens />
-              Terms
-            </ScrollLink>
-          </div>
-          <div className="tile">
-            <ScrollLink to='distribution' activeClass='selected' spy={true}>
-              <MdGeneratingTokens />
-              <span>Fair</span> Distribution
-              <p>No front-running</p>
-            </ScrollLink>
-          </div>
-          <div className="tile">
-            <ScrollLink to='allocation' activeClass='selected' spy={true}>
-              <MdGeneratingTokens />
-              <span>Token</span> Allocaton
-            </ScrollLink>
-          </div>
-        </div>
-      </animated.div> */}
 
       <Modal
         visible={isModalVisible}
