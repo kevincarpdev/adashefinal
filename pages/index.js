@@ -127,6 +127,17 @@ const Home = ({ data }) => {
       </text>
     );
   };
+  const renderCustomizedLabel2 = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
 
   const handleStateChange = (status) => {
     if (status.status === Sticky.STATUS_FIXED) {
@@ -383,10 +394,11 @@ const Home = ({ data }) => {
               <PieChart width={500} height={500} className="pieChart">
                 <Pie
                   data={data01}
-                  isAnimationActive={true}
                   label={renderCustomizedLabel}
                   fill="#8884d8"
                   dataKey="value"
+                  cx="50%"
+                  cy="50%"
                 >
                   {data01.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -400,10 +412,11 @@ const Home = ({ data }) => {
               <PieChart width={300} height={300} className="pieChart">
                 <Pie
                   data={data01}
-                  isAnimationActive={true}
-                  label={renderCustomizedLabel}
+                  label={renderCustomizedLabel2}
                   fill="#8884d8"
                   dataKey="value"
+                  cx="50%"
+                  cy="50%"
                 >
                   {data01.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
