@@ -15,7 +15,7 @@ import Sticky from 'react-stickynode';
 import NativeBalance from "../components/NativeBalance";
 import Account from "../components/Account/Account";
 import DEX from "../components/DEX";
-import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Legend, Tooltip, Cell, ResponsiveContainer } from 'recharts';
 import { MdSpaceDashboard, MdClose, MdGeneratingTokens, MdOutlineArrowDownward } from 'react-icons/md';
 import { FaDiscord, FaTelegramPlane, FaMediumM, FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { useSpring, animated } from "react-spring";
@@ -114,6 +114,19 @@ const Home = ({ data }) => {
     { name: 'Partner Recruitment', value: 2.5 },
     { name: 'Initial Token Sales', value: 21.78 },
   ];
+  const COLORS = ['#8193b2', '#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#6244a5', '#275dba', '#b79c2f'];
+  const RADIAN = Math.PI / 180;
+  const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    return (
+      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
+        {`${(percent * 100).toFixed(0)}%`}
+      </text>
+    );
+  };
 
   const handleStateChange = (status) => {
     if (status.status === Sticky.STATUS_FIXED) {
@@ -369,12 +382,16 @@ const Home = ({ data }) => {
             <div className="pieContainer hidden md:block">
               <PieChart width={500} height={500} className="pieChart">
                 <Pie
-                  dataKey="value"
-                  isAnimationActive={false}
                   data={data01}
-                  fill="#313233"
-                  label
-                />
+                  isAnimationActive={true}
+                  label={renderCustomizedLabel}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {data01.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
                 <Legend />
                 <Tooltip />
               </PieChart>
@@ -382,12 +399,16 @@ const Home = ({ data }) => {
             <div className="pieContainer block md:hidden">
               <PieChart width={300} height={300} className="pieChart">
                 <Pie
-                  dataKey="value"
-                  isAnimationActive={false}
                   data={data01}
-                  fill="#313233"
-                  label
-                />
+                  isAnimationActive={true}
+                  label={renderCustomizedLabel}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {data01.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
                 <Legend />
                 <Tooltip />
               </PieChart>
