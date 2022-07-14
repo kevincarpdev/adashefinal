@@ -11,6 +11,7 @@ import { connectors } from "./config";
 import Image from 'next/image'
 import MetaMask from '../../public/WalletIcons/metamaskWallet.png'
 import WalletConnect from '../../public/WalletIcons/wallet-connect.svg'
+import TrustWallet from '../../public/WalletIcons/TrustWallet.png'
 
 const styles = {
   account: {
@@ -97,7 +98,7 @@ function Account() {
                   }
                 }}
               >
-                {connectorId == "injected" ?
+                {title == "Metamask" &&
                   <Image
                     src={MetaMask}
                     alt={title}
@@ -105,10 +106,20 @@ function Account() {
                     layout="intrinsic"
                     style={styles.icon}
                   />
-                :
-                  <WalletConnect className="walletConnect" />
                 }
-                
+                {title == "Trust Wallet" &&
+                  <Image
+                    src={TrustWallet}
+                    alt={title}
+                    quality="85"
+                    layout="intrinsic"
+                    style={styles.icon}
+                  />
+                }
+                {title == "WalletConnect" &&
+                  <WalletConnect className="walletConnect" />
+
+                }
                 <Text style={{ fontSize: "14px" }}>{title}</Text>
               </div>
             ))}

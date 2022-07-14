@@ -638,6 +638,9 @@ section#info {
   @apply font-bold;
   font-size: 1.75rem;
 }
+.trustWallet {
+  max-width: 50px;
+}
 /* Responsive Media Styles */
 @media screen and (max-width: 768px) {
   .buyCard {

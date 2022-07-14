@@ -18,5 +18,11 @@ export const connectors = [
     icon: "../../public/WalletIcons/wallet-connect.svg",
     connectorId: "walletconnect",
     priority: 2,
-  }
+  },
+  {
+    title: "Trust Wallet",
+    icon: "../../public/WalletIcons/TrustWallet.png",
+    connectorId: "injected",
+    priority: 3,
+  },
 ];
