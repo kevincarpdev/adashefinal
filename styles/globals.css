@@ -589,7 +589,7 @@ section#mint {
   @apply pb-24;
 }
 section .subheader {
-  @apply mb-10;
+  @apply mb-6;
 }
 section#faq {
   @apply py-24;
@@ -717,6 +717,14 @@ section#info {
   width: 150px;
   height: auto;
   fill: var(--primary);
+}
+.description {
+  @apply mx-auto mb-8;
+  font-size: 1.2rem;
+  max-width: 65ch;
+}
+.description a {
+  color: var(--purple);
 }
 
 /* Responsive Media Styles */
