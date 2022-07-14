@@ -640,7 +640,7 @@ const Home = ({ data }) => {
         </ul>
       </footer>
 
-
+      {/* 
       <animated.div style={{ left: left }} className="sidebar">
         <button className="menuButton" onClick={() => setOpenBar(openBar => !openBar)}>
           {!openBar ? <MdSpaceDashboard /> : <MdClose />}
@@ -673,7 +673,7 @@ const Home = ({ data }) => {
             </ScrollLink>
           </div>
         </div>
-      </animated.div>
+      </animated.div> */}
 
       <Modal
         visible={isModalVisible}
