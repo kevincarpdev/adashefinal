@@ -27,7 +27,6 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
         </Head>
-        <DefaultSeo {...config} />
         <body>
           <Main />
           <NextScript />

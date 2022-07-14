@@ -21,7 +21,7 @@ const Accordion = () => {
             activeIndex={activeIndex}
             setActiveIndex={setActiveIndex}
           >
-            All OFAC sanctioned countries are excluded (including USand US residents).  
+            All OFAC sanctioned countries are excluded (including US and US residents).  
           </AccordionLayout>
           <AccordionLayout 
             title="Where can I read more about the tokenomics (lock-up, emission schedule, etc.)? "

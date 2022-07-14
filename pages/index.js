@@ -36,6 +36,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import axios from "axios";
 
 // import required modules
 import { FreeMode, Pagination, A11y } from "swiper";
@@ -50,13 +51,25 @@ const Home = ({ data }) => {
   const [openBar, setOpenBar] = useState();
   const { authenticate, isAuthenticated, isAuthenticating, user, account, logout, Moralis } = useMoralis();
   let ScrollLink = Scroll.Link;
+  let loaded = false;
 
   const login = async () => {
     if (!isAuthenticated) {
 
       await authenticate()
         .then(function (user) {
-
+          if (geoState.countryName === "United States") {
+            logout()
+            toast.error("It looks like you are accessing the site from the United States. We apologize but all OFAC sanctioned countries are excluded (including US and US residents).", {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          }
         })
         .catch(function (error) {
           toast.error(error, {
@@ -195,6 +208,38 @@ const Home = ({ data }) => {
     observer.observe(cachedRef)
     return () => observer.unobserve(cachedRef)
   }, [ref])
+
+  const [geoState, setGeoState] = useState({
+    ip: "",
+    countryName: "",
+    countryCode: "",
+    city: "",
+    timezone: ""
+  });
+
+  const getGeoInfo = () => {
+    axios
+      .get("https://ipapi.co/json/")
+      .then((response) => {
+        let data = response.data;
+        setGeoState({
+          ...geoState,
+          ip: data.ip,
+          countryName: data.country_name,
+          countryCode: data.country_calling_code,
+          city: data.city,
+          timezone: data.timezone
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getGeoInfo();
+
+  }, [geoState]);
 
   return (
     <div>
@@ -629,9 +674,7 @@ const Home = ({ data }) => {
           </motion.li>
         </ul>
       </footer>
-      <div id="notification">
-        <ToastContainer />
-      </div>
+
 
       <animated.div style={{ left: left }} className="sidebar">
         <button className="menuButton" onClick={() => setOpenBar(openBar => !openBar)}>
@@ -715,6 +758,9 @@ const Home = ({ data }) => {
           <p className="coming-soon">Coming Soon</p>
         </Card>
       </Modal>
+      <div id="notification">
+        <ToastContainer />
+      </div>
     </div >
   )
 }
