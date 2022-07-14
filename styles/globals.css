@@ -648,7 +648,7 @@ section#info {
 }
 .maticAmount {
   @apply flex flex-row justify-center place-items-center mx-auto my-4;
-  max-width: 200px;
+  max-width: 180px;
 }
 .tokenAmount {
   @apply text-center focus-visible:outline-0;
