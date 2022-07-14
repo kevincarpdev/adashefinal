@@ -17,6 +17,7 @@ import Account from "../components/Account/Account";
 import DEX from "../components/DEX";
 import { PieChart, Pie, Legend, Tooltip, Cell, ResponsiveContainer } from 'recharts';
 import { MdSpaceDashboard, MdClose, MdGeneratingTokens, MdOutlineArrowDownward } from 'react-icons/md';
+import { BsCurrencyExchange } from 'react-icons/bs';
 import { FaDiscord, FaTelegramPlane, FaMediumM, FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { useSpring, animated } from "react-spring";
 import Uniswap from '../public/uniswap.png'
@@ -310,7 +311,6 @@ const Home = ({ data }) => {
                   >
                     <Account />
                   </motion.button>
-
                 }
               </div>
             </div>
@@ -377,6 +377,32 @@ const Home = ({ data }) => {
               {!isAuthenticated ? <Account /> : <></>}
             </motion.button>
           }
+        </section>
+        <section id="exchange">
+          <span className='subheader'><h3>Need MATIC? Exchange here</h3></span>
+          <div className="exchange">
+            <BsCurrencyExchange />
+          </div>
+          {!isAuthenticated ?
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 1.0 }}
+              className="btn"
+              onClick={login}
+            >
+              {!isAuthenticated ? <Account /> : <></>}
+            </motion.button>
+            :
+            <motion.button
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 1.0 }}
+              className="btn"
+              onClick={() => setIsModalVisible(true)}
+            >
+              Exchange
+            </motion.button>
+          }
+
         </section>
 
         <section id="allocation">
@@ -669,7 +695,7 @@ const Home = ({ data }) => {
           }}
           bodyStyle={{ padding: "15px" }}
         >
-          <DEX chain="matic" />
+          <DEX chain="polygon" />
         </Card>
       </Modal>
       <Modal

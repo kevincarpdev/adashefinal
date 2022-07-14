@@ -687,6 +687,26 @@ section#info {
   @apply inline-block m-0 relative;
   top: -4px;
 }
+#exchange {
+  @apply bg-white py-24;
+}
+#exchange .btn {
+  @apply font-bold;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+#exchange .subheader {
+  @apply mb-4;
+  color: var(--primary);
+}
+.exchange {
+  @apply my-4;
+}
+.exchange svg {
+  width: 150px;
+  height: auto;
+  fill: var(--primary);
+}
 
 /* Responsive Media Styles */
 @media screen and (max-width: 768px) {
