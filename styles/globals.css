@@ -639,7 +639,7 @@ section#info {
   font-size: 1.75rem;
 }
 .trustWallet {
-  max-width: 50px;
+  max-width: 80px;
 }
 /* Responsive Media Styles */
 @media screen and (max-width: 768px) {

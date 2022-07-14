@@ -46,6 +46,14 @@ const styles = {
     marginBottom: "8px",
     height: "30px",
   },
+  icon2: {
+    alignSelf: "center",
+    fill: "rgb(40, 13, 95)",
+    flexShrink: "1",
+    marginBottom: "8px",
+    height: "30px",
+  },
+
 };
 
 function Account() {
@@ -108,17 +116,19 @@ function Account() {
                   />
                 }
                 {title == "Trust Wallet" &&
+                <div className="trustWallet">
+
                   <Image
                     src={TrustWallet}
                     alt={title}
                     quality="85"
                     layout="intrinsic"
-                    style={styles.icon}
+                    style={styles.icon2}
                   />
+                  </div>
                 }
                 {title == "WalletConnect" &&
                   <WalletConnect className="walletConnect" />
-
                 }
                 <Text style={{ fontSize: "14px" }}>{title}</Text>
               </div>
