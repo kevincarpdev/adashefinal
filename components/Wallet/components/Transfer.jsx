@@ -113,7 +113,7 @@ function Transfer() {
         <h3>{tokenBuyAmount ? tokenBuyAmount : 0} ADSE</h3>
         <div style={styles.select}>
           <div style={styles.textWrapper}>
-            <Text strong>#  Matic:</Text>
+            <Text strong>MATIC:</Text>
           </div>
           <Input
             size="large"
