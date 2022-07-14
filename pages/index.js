@@ -62,10 +62,10 @@ const Home = ({ data }) => {
             logout()
             toast.error("It looks like you are accessing the site from the United States. We apologize but all OFAC sanctioned countries are excluded (including US and US residents).", {
               position: "top-right",
-              autoClose: 5000,
+              autoClose: false,
               hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
+              closeOnClick: false,
+              pauseOnHover: false,
               draggable: true,
               progress: undefined,
             });
