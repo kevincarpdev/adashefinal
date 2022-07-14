@@ -341,11 +341,9 @@ const Home = ({ data }) => {
                       whileTap={{ scale: 1.0 }}
                       className="btn"
                     >
-
                       <ScrollLink to='mint' spy={true} offset={-50}>Mint <MdOutlineArrowDownward /></ScrollLink>
                     </motion.button>
                   </>
-
                   :
                   <motion.button
                     whileHover={{ scale: 1.2 }}
@@ -369,10 +367,6 @@ const Home = ({ data }) => {
           </div>
         </div>
       </header>
-
-      {/* <button className="menuButton" onClick={() => setOpenBar(openBar => !openBar)}>
-        {!openBar ? <MdSpaceDashboard /> : <MdClose />}
-      </button> */}
 
       <main className="flex flex-col text-center">
 
@@ -413,7 +407,6 @@ const Home = ({ data }) => {
             <>
               <Wallet />
             </>
-
             :
             <motion.button
               whileHover={{ scale: 1.2 }}
@@ -449,7 +442,6 @@ const Home = ({ data }) => {
               Exchange
             </motion.button>
           }
-
         </section>
 
         <section id="allocation">
@@ -519,7 +511,6 @@ const Home = ({ data }) => {
               slidesPerView={2}
 
             >
-
               <SwiperSlide>
                 <div className="logoSlide">
                   <Image
@@ -529,7 +520,6 @@ const Home = ({ data }) => {
                     layout="intrinsic"
                   />
                 </div>
-
               </SwiperSlide>
               <SwiperSlide>
                 <div className="logoSlide">
@@ -540,7 +530,6 @@ const Home = ({ data }) => {
                     layout="intrinsic"
                   />
                 </div>
-
               </SwiperSlide>
               <SwiperSlide>
                 <div className="logoSlide">
@@ -551,7 +540,6 @@ const Home = ({ data }) => {
                     layout="intrinsic"
                   />
                 </div>
-
               </SwiperSlide>
               <SwiperSlide>
                 <div className="logoSlide">
@@ -562,7 +550,6 @@ const Home = ({ data }) => {
                     layout="intrinsic"
                   />
                 </div>
-
               </SwiperSlide>
               <SwiperSlide>
                 <div className="logoSlide">
@@ -573,7 +560,6 @@ const Home = ({ data }) => {
                     layout="intrinsic"
                   />
                 </div>
-
               </SwiperSlide>
               <SwiperSlide>
                 <div className="logoSlide">
@@ -584,7 +570,6 @@ const Home = ({ data }) => {
                     layout="intrinsic"
                   />
                 </div>
-
               </SwiperSlide>
               <SwiperSlide>
                 <div className="logoSlide">
@@ -595,11 +580,9 @@ const Home = ({ data }) => {
                     layout="intrinsic"
                   />
                 </div>
-
               </SwiperSlide>
             </Swiper>
           </div>
-
         </section>
 
         <section id="faq">
