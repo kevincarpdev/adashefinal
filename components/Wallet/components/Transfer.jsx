@@ -48,10 +48,14 @@ function Transfer() {
   const [tx, setTx] = useState();
   const [amount, setAmount] = useState();
   const [isPending, setIsPending] = useState(false);
+  const [tokenBuyAmount, setTokenBuyAmount] = useState();
 
   useEffect(() => {
     amount ? setTx({ amount}) : setTx();
   },  [amount]);
+   useEffect(() => {
+    tokenBuyAmount ? setTokenBuyAmount(amount * 770) : setTokenBuyAmount();
+  },  [tokenBuyAmount]);
 
   const openNotification = ({ message, description }) => {
     toast.info(message + description, {
@@ -86,39 +90,39 @@ function Transfer() {
   
     setIsPending(true);
     const txStatus = await Moralis.transfer(options);
-
-    txStatus
-      .on("transactionHash", (hash) => {
-        openNotification({
-          message: "🔊 New Transaction",
-          description: `${hash}`,
-        });
-        console.log("🔊 New Transaction", hash);
-      })
-      .on("receipt", (receipt) => {
-        openNotification({
-          message: "📃 New Receipt",
-          description: `${receipt.transactionHash}`,
-        });
-        console.log("🔊 New Receipt: ", receipt);
-        setIsPending(false);
-      })
-      .on("error", (error) => {
-        openNotification({
-          message: "📃 Error",
-          description: `${error.message}`,
-        });
-        console.error(error);
-        setIsPending(false);
-      });
+    setAmount(0)
+    // txStatus
+    //   .on("transactionHash", (hash) => {
+    //     openNotification({
+    //       message: "🔊 New Transaction",
+    //       description: `${hash}`,
+    //     });
+    //     console.log("🔊 New Transaction", hash);
+    //   })
+    //   .on("receipt", (receipt) => {
+    //     openNotification({
+    //       message: "📃 New Receipt",
+    //       description: `${receipt.transactionHash}`,
+    //     });
+    //     console.log("🔊 New Receipt: ", receipt);
+    //     setIsPending(false);
+    //   })
+    //   .on("error", (error) => {
+    //     openNotification({
+    //       message: "📃 Error",
+    //       description: `${error.message}`,
+    //     });
+    //     console.error(error);
+    //   });
   }
 
   return (
     <div style={styles.card}>
       <div style={styles.tranfer}>
+        <h3>{tokenBuyAmount ? tokenBuyAmount : 0} ADSE</h3>
         <div style={styles.select}>
           <div style={styles.textWrapper}>
-            <Text strong>Amount:</Text>
+            <Text strong>#  Matic:</Text>
           </div>
           <Input
             size="large"
@@ -132,7 +136,6 @@ function Transfer() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 1.0 }}
           className="btn purchase"
-          loading={isPending}
           style={{ width: "100%", marginTop: "25px" }}
           onClick={() => transfer()}
           disabled={isPending}
