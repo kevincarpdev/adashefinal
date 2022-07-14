@@ -643,15 +643,26 @@ section#info {
   max-width: 80px;
 }
 .polygon {
-  @apply mx-auto mt-0 mb-4;
+  @apply mx-auto mt-2 mb-4;
   max-width: 100px;
 }
-.maticAmount {
-  @apply flex flex-row justify-center place-items-center mx-auto my-4 mb-0;
+.maticAmount,
+.adasheAmount {
+  @apply flex flex-col justify-center place-items-center mx-auto my-4 mb-0;
   max-width: 180px;
 }
+.maticAmount span,
+.adasheAmount span {
+  @apply block;
+  /* color: var(--blue); */
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+.adasheAmount span {
+  @apply block;
+}
 .tokenAmount {
-  @apply text-center focus-visible:outline-0;
+  @apply block text-center focus-visible:outline-0;
   color: rgba(49, 50, 51, 1);
   border: 0;
   font-size: 2rem;
@@ -684,7 +695,7 @@ section#info {
   width: 120px;
 }
 .maticTotalAmount {
-  @apply inline-block m-0 relative;
+  @apply block m-0 relative;
   top: -4px;
 }
 #exchange {

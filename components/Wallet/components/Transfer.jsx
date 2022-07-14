@@ -114,7 +114,7 @@ function Transfer() {
             }}
             value={amount ? amount : 0}
           />
-          <h3 className="maticTotalAmount">MATIC</h3>
+          <h3 className="maticTotalAmount"><span>MATIC</span></h3>
         </div>
         
           <div className="polygon">
@@ -123,16 +123,17 @@ function Transfer() {
           <div className="downArrow">
             <FiArrowDown />
           </div>
-          <div className="logoColored">
-            <Image
-              src={LogoColored}
-              alt="Logo"
-              quality="85"
-              layout="intrinsic"
-            />
+          <div className="adasheAmount">
+            <div className="logoColored">
+              <Image
+                src={LogoColored}
+                alt="Logo"
+                quality="85"
+                layout="intrinsic"
+              />
+            </div>
+            <h3 className="totalAmount">{tokenBuyAmount ? tokenBuyAmount : 0} <span>ADSE</span></h3>
           </div>
-          
-        <h3 className="totalAmount">{tokenBuyAmount ? tokenBuyAmount : 0} ADSE</h3>
           <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 1.0 }}
