@@ -16,7 +16,7 @@ const Accordion = () => {
           </AccordionLayout>
 
           <AccordionLayout 
-            title="Are any countries excluded of the donation event?"
+            title="Are any countries excluded from the donation event?"
             index={2}
             activeIndex={activeIndex}
             setActiveIndex={setActiveIndex}

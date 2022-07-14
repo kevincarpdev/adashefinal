@@ -340,14 +340,14 @@ const Home = ({ data }) => {
                 whileHover={{ scale: 1.1 }}
               >
                 <h3>Supply</h3>
-                <p>A total of a 750,000,000 ADSE (7.5% of the supply) is available for the presale event. The total ADSE supply is 10,000,000,000.</p>
+                <p>A total of a 2,178,150,000 ADSE (7.5% of the supply) is available for the presale event. The total ADSE supply is 10,000,000,000.</p>
               </motion.div>
               <motion.div
                 className="card"
                 whileHover={{ scale: 1.1 }}
               >
                 <h3>Terms</h3>
-                <p>The contract accepts MATIC and the starting token price will be 750 ADSE per MATIC.</p>
+                <p>The contract accepts MATIC and the starting token price will be 770 ADSE per MATIC.</p>
               </motion.div>
               <motion.div
                 className="card"
