@@ -2,7 +2,7 @@
   --primary: #8193b2;
   --fontHeader: "Montserrat", sans-serif;
   --fontBody: "Hind", sans-serif;
-  --purple: #6244a5;
+  --purple: #a59244;
   --blue: #275dba;
   --darkBlue: #143265;
   --darkPurple: #322253;
@@ -630,7 +630,8 @@ section#info {
   max-width: 125px;
 }
 
-.btn.secondary {
+.btn.secondary,
+.btn.pending {
   @apply block font-bold mb-2;
   background: var(--primary);
 }
@@ -641,6 +642,7 @@ section#info {
 .trustWallet {
   max-width: 80px;
 }
+
 /* Responsive Media Styles */
 @media screen and (max-width: 768px) {
   .buyCard {

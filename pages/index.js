@@ -196,14 +196,6 @@ const Home = ({ data }) => {
     return () => observer.unobserve(cachedRef)
   }, [ref])
 
-  // const { fetch, error, isFetching } = useWeb3Transfer({
-  //   amount: Moralis.Units.Token(20, 18),
-  //   receiver: "0x0000000000000000000000000000000000000000",
-  //   type: "erc20",
-  //   contractAddress: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
-  // });
-
-
   return (
     <div>
       <Head>
