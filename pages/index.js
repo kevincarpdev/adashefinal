@@ -105,16 +105,16 @@ const Home = ({ data }) => {
   };
 
   const data01 = [
-    { name: 'Presale', value: 20.09 },
+    { name: 'Token Sales', value: 21.78 },
+    { name: 'Founders', value: 7 },
     { name: 'Marketing', value: 2.5 },
-    { name: 'Team Allocation', value: 7 },
-    { name: 'Strategic Partners', value: 2.5 },
-    { name: 'Reserves', value: 23.72 },
     { name: 'DeFi Staking Rewards', value: 30 },
     { name: 'Partner Recruitment', value: 2.5 },
-    { name: 'Initial Token Sales', value: 21.78 },
+    { name: 'Strategic Partners', value: 2.5 },
+    { name: 'Presale', value: 20.09 },
+    { name: 'Reserves', value: 23.72 },
   ];
-  const COLORS = ['#8193b2', '#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#6244a5', '#275dba', '#b79c2f'];
+  const COLORS = ['#346CF0', '#E22C29', '#F8B00C', '#2D9C41', '#FC5609', '#3BB1B9', '#6997F5', '#FAC83F'];
   const RADIAN = Math.PI / 180;
   const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
