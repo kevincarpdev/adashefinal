@@ -575,7 +575,7 @@ const Home = ({ data }) => {
             </div>
           </div>
         </section>
-
+        {/* 
         <section className="tab-container">
           <div className="menuLogo">
             <ScrollLink to='hero'>
@@ -587,7 +587,7 @@ const Home = ({ data }) => {
               />
             </ScrollLink>
           </div>
-        </section>
+        </section> */}
       </main>
 
       <footer id="footer">
