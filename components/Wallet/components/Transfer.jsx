@@ -104,7 +104,10 @@ function Transfer() {
   return (
     <div style={styles.card}>
       <div style={styles.tranfer}>
-        <div className="maticAmount">
+          <div className="polygon">
+            <Polygon />
+          </div>
+          <div className="maticAmount">
           <input
             className="tokenAmount"
             size="large"
@@ -117,10 +120,6 @@ function Transfer() {
           />
           <h3 className="maticTotalAmount"><span>MATIC</span></h3>
         </div>
-        
-          <div className="polygon">
-            <Polygon />
-          </div>
           <div className="downArrow">
             <FiArrowDown />
           </div>

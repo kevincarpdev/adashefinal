@@ -652,6 +652,9 @@ section#info {
   @apply flex flex-col justify-center place-items-center mx-auto my-4 mb-0;
   max-width: 180px;
 }
+.adasheAmount {
+  @apply mt-0;
+}
 .maticAmount span,
 .adasheAmount span {
   @apply block;
