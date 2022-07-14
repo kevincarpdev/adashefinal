@@ -21,7 +21,6 @@ import { BsCurrencyExchange } from 'react-icons/bs';
 import { FaDiscord, FaTelegramPlane, FaMediumM, FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa';
 import { useSpring, animated } from "react-spring";
 import Uniswap from '../public/uniswap.png'
-import DYDX from '../public/dydx.png'
 import CoinBase from '../public/coinbase.png'
 import Metamask2 from '../public/metamask2.png'
 import PalRemit from '../public/palremit.png'
