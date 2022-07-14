@@ -363,7 +363,7 @@ const Home = ({ data }) => {
         <section id="mint">
           <span className='subheader highlight'><h3>Buy Adashe</h3></span>
           <div className="container">
-            <p className="description">The ADASHE contract only accepts MATIC tokens. Below you can trade your matic tokens in exchange for ADSE tokens. If you need MATIC tokens, you may use the <ScrollLink to='exchange'>exchange</ScrollLink> section below.</p>
+            <p className="description">The ADASHE contract only accepts MATIC tokens. Below you can trade your MATIC tokens in exchange for ADSE tokens. If you need MATIC tokens, you may use the <ScrollLink to='exchange'>exchange</ScrollLink> section below.</p>
           </div>
           {isAuthenticated ?
             <>
