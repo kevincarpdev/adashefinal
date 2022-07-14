@@ -347,7 +347,7 @@ const Home = ({ data }) => {
                 whileHover={{ scale: 1.1 }}
               >
                 <h3>Terms</h3>
-                <p>The contract accepts WETH or USDC and the starting token price will be $0.00087 per ADSE.</p>
+                <p>The contract accepts MATIC and the starting token price will be 750 ADSE per MATIC.</p>
               </motion.div>
               <motion.div
                 className="card"

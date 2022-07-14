@@ -58,17 +58,6 @@ function Transfer() {
     tokenBuyAmount ? setTokenBuyAmount(amount * 770) : setTokenBuyAmount();
   },  [tokenBuyAmount]);
 
-  const openNotification = ({ message, description }) => {
-    toast.info(message + description, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
 
   async function transfer() {
     setIsPending(true);
@@ -119,7 +108,8 @@ function Transfer() {
             size="large"
             prefix={<CreditCardOutlined />}
             onChange={(e) => {
-              setAmount(`${e.target.value}`);
+              setAmount(`${e.target.value}`)
+              setTokenBuyAmount(`${e.target.value}` * 770)
             }}
             value={amount}
           />
