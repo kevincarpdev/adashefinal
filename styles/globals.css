@@ -231,7 +231,9 @@ img {
 span.highlight {
   color: #fff;
 }
-
+.hero-text .btn.secondary {
+  @apply mx-auto lg:ml-0;
+}
 .page-header {
   @apply mb-6;
   color: #040d21;
@@ -674,12 +676,13 @@ section#info {
   width: auto !important;
   height: auto !important;
   min-width: 0 !important;
-  font-size: 1.75rem;
+  font-size: 2.5rem;
   color: rgba(49, 50, 51, 1);
   margin-bottom: 0.5rem;
   line-height: 1.25;
   font-family: var(--fontHeader);
-  font-weight: 700;
+  font-weight: 600;
+  max-width: 100%;
 }
 
 .downArrow {
@@ -713,6 +716,7 @@ section#info {
 #exchange .subheader {
   @apply mb-4;
   color: var(--primary);
+  word-break: break-word;
 }
 .exchange {
   @apply my-4;

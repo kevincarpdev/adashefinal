@@ -475,17 +475,7 @@ const Home = ({ data }) => {
               slidesPerView={2}
 
             >
-              <SwiperSlide>
-                <div className="logoSlide">
-                  <Image
-                    src={DYDX}
-                    alt="DYDX"
-                    quality="85"
-                    layout="intrinsic"
-                  />
-                </div>
 
-              </SwiperSlide>
               <SwiperSlide>
                 <div className="logoSlide">
                   <Image
