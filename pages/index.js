@@ -167,21 +167,21 @@ const Home = ({ data }) => {
       });
     }
     else {
-      authenticate()
-        .then(function (user) {
+      // authenticate()
+      //   .then(function (user) {
 
-        })
-        .catch(function (error) {
-          toast.error(error, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          })
-        })
+      //   })
+      //   .catch(function (error) {
+      //     toast.error(error, {
+      //       position: "top-right",
+      //       autoClose: 5000,
+      //       hideProgressBar: false,
+      //       closeOnClick: true,
+      //       pauseOnHover: true,
+      //       draggable: true,
+      //       progress: undefined,
+      //     })
+      //   })
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
