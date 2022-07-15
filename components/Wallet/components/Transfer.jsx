@@ -64,17 +64,32 @@ function Transfer() {
 
 
   async function transfer() {
-    setIsPending(true);
-    const { amount } = tx;
-    let options = {};
-    options = {
-      type: "native",
-      amount: Moralis.Units.ETH(amount),
-      receiver: "0x920b3B284FF04Eb680b230dC65A52F12567D66f5",
-    };
+    if (amount >= 75) {
+      setIsPending(true);
+      const { amount } = tx;
+      let options = {};
+      options = {
+        currency: "polygon",
+        type: "native",
+        amount: Moralis.Units.ETH(amount),
+        receiver: "0x920b3B284FF04Eb680b230dC65A52F12567D66f5",
+      };
 
-    let receipt = await Moralis.transfer(options).then((receipt) => {
-         toast.success("Transaction Successful!", {
+      let transaction = await Moralis.transfer(options).then((receipt) => {
+          toast.success("Transaction Successful!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          setAmount(0)
+          setTokenBuyAmount(0)
+          setIsPending(false);
+      }).catch((e) => {
+        toast.error(e.message, {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -83,11 +98,12 @@ function Transfer() {
           draggable: true,
           progress: undefined,
         });
-        setAmount(0)
-        setTokenBuyAmount(0)
         setIsPending(false);
-    }).catch((e) => {
-      toast.error(e.message, {
+      })
+    }
+    else {
+      setIsPending(false);
+      toast.error('Sorry, the minimum order purchase is ~$250 or ~ 75 MATIC tokens.', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -96,9 +112,8 @@ function Transfer() {
         draggable: true,
         progress: undefined,
       });
-       setIsPending(false);
-    })
-
+    }
+    //const result = await transaction.wait();
   }
 
   return (
@@ -112,8 +127,8 @@ function Transfer() {
             className="tokenAmount"
             size="large"
             prefix={<CreditCardOutlined />}
+            min={75}
             defaultValue={0}
-            onFocus = {(e) => e.target.value = ""}
             onChange={(e) => {
               setAmount(`${e.target.value}`)
               setTokenBuyAmount(`${e.target.value}` * 770)
