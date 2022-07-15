@@ -25,7 +25,7 @@ function Wallet() {
         <div style={styles.header}>
           <Blockie scale={5} avatar currentWallet style />
           <Address size="6" copyable />
-          <NativeBalance />
+          {/* <NativeBalance /> */}
         </div>
       }
     >

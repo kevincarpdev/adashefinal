@@ -729,7 +729,16 @@ section#info {
 .description a {
   color: var(--blue);
 }
+.buyDetails {
+  @apply flex flex-row gap-x-8 mb-4;
+}
 
+.buyDetails span {
+  @apply block mb-0 font-bold;
+}
+.addressBalance {
+  color: var(--purple);
+}
 /* Responsive Media Styles */
 @media screen and (max-width: 768px) {
   .buyCard {

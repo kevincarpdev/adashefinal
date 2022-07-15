@@ -150,6 +150,7 @@ function Transfer() {
             </div>
             <h3 className="totalAmount">{tokenBuyAmount ? tokenBuyAmount : 0} <span>ADSE</span></h3>
           </div>
+          
           <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 1.0 }}
