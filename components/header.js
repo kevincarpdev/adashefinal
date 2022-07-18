@@ -119,8 +119,8 @@ const Header = ({ data = {}, isTransparent, onSetup = () => { } }) => {
                     <Icon name="Logo" id="header" viewBox="0 0 73 20" />
                   </button>
                 ) : (
-                  <Link href="https://adashe.io/" scroll={false}>
-                    <a className="logo--link" aria-label="Go To Main Site">
+                  <Link href="/" scroll={false}>
+                    <a className="logo--link" aria-label="Go Home">
                       <Icon name="Logo" id="header" viewBox="0 0 73 20" />
                     </a>
                   </Link>

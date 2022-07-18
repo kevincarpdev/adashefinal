@@ -227,6 +227,10 @@ const Home = ({ data }) => {
         id="tsparticles"
         init={particlesInit}
         options={{
+          fullScreen: {
+            enable: true,
+            zIndex: 0
+          },
           background: {
             color: {
               value: "#060B19",
@@ -274,7 +278,8 @@ const Home = ({ data }) => {
               value: { min: 1, max: 5 },
             },
           },
-          detectRetina: true,
+          retina_detect: true,
+          fps_limit: 60,
         }}
       />
 
@@ -321,7 +326,7 @@ const Home = ({ data }) => {
               </div>
             </div>
             <div className="logo">
-              <Link href="https://adashe.io" scroll={false}>
+              <Link href="https://adashe.io" passHref target="_blank">
                 <Image
                   src={mainLogo}
                   alt="Logo"
