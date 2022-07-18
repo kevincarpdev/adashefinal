@@ -320,12 +320,15 @@ const Home = ({ data }) => {
               </div>
             </div>
             <div className="logo">
-              <Image
-                src={mainLogo}
-                alt="Logo"
-                quality="85"
-                layout="intrinsic"
-              />
+              <Link href="https://adashe.io" scroll={false}>
+                <Image
+                  src={mainLogo}
+                  alt="Logo"
+                  quality="85"
+                  layout="intrinsic"
+                />
+              </Link>
+
             </div>
           </div>
         </div>

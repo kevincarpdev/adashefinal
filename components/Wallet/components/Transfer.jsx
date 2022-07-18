@@ -64,7 +64,7 @@ function Transfer() {
 
 
   async function transfer() {
-    if (amount >= 75) {
+    if (amount >= 53) {
       setIsPending(true);
       const { amount } = tx;
       let options = {};
@@ -103,7 +103,7 @@ function Transfer() {
     }
     else {
       setIsPending(false);
-      toast.error('Sorry, the minimum order purchase is ~$250 or ~ 75 MATIC tokens.', {
+      toast.error('Sorry, the minimum order purchase is ~$50 or ~ 53 MATIC tokens.', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

@@ -29,7 +29,7 @@ import Account from '@components/Account'
 //import ETHBalance from '@components/ETHBalance'
 import useEagerConnect from '../hooks/useEagerConnect'
 
-const Header = ({ data = {}, isTransparent, onSetup = () => {} }) => {
+const Header = ({ data = {}, isTransparent, onSetup = () => { } }) => {
   // expand our header data
   const {
     promo,
@@ -119,8 +119,8 @@ const Header = ({ data = {}, isTransparent, onSetup = () => {} }) => {
                     <Icon name="Logo" id="header" viewBox="0 0 73 20" />
                   </button>
                 ) : (
-                  <Link href="/" scroll={false}>
-                    <a className="logo--link" aria-label="Go Home">
+                  <Link href="https://adashe.io/" scroll={false}>
+                    <a className="logo--link" aria-label="Go To Main Site">
                       <Icon name="Logo" id="header" viewBox="0 0 73 20" />
                     </a>
                   </Link>
@@ -226,8 +226,8 @@ const Header = ({ data = {}, isTransparent, onSetup = () => {} }) => {
                     </Popover.Group> */}
                     <Account triedToEagerConnect={triedToEagerConnect} />
 
-                    {isConnected && <CartToggle />} 
-                    
+                    {isConnected && <CartToggle />}
+
                     {/* {!isAuthenticated ? (
                       <button
                         disabled={isAuthenticating}
@@ -250,8 +250,8 @@ const Header = ({ data = {}, isTransparent, onSetup = () => {} }) => {
                         </button>
                       </>
                     )} */}
-                    
-                    
+
+
 
                   </div>
                 </div>
