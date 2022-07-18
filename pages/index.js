@@ -37,6 +37,7 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import axios from "axios";
+import Link from 'next/link'
 
 // import required modules
 import { FreeMode, Pagination, A11y } from "swiper";
