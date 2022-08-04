@@ -54,6 +54,7 @@ const Home = ({ data }) => {
   const { authenticate, isAuthenticated, isAuthenticating, user, account, logout, Moralis } = useMoralis();
   let ScrollLink = Scroll.Link;
   let loaded = false;
+  const [isProhibited, setIsProhibited] = useState(false);
 
   const login = async () => {
     if (!isAuthenticated) {
@@ -62,15 +63,7 @@ const Home = ({ data }) => {
         .then(function (user) {
           if (geoState.countryName === "United States") {
             logout()
-            toast.error("It looks like you are accessing the site from the United States. We apologize but all OFAC sanctioned countries are excluded (including US and US residents).", {
-              position: "top-right",
-              autoClose: false,
-              hideProgressBar: false,
-              closeOnClick: false,
-              pauseOnHover: false,
-              draggable: true,
-              progress: undefined,
-            });
+            setIsProhibited(true)
           }
         })
         .catch(function (error) {
@@ -192,6 +185,20 @@ const Home = ({ data }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
+  useEffect(() => {
+    if (isProhibited) {
+      toast.error("It looks like you are accessing the site from the United States. We apologize but all OFAC sanctioned countries are excluded (including US and US residents).", {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isProhibited]);
 
   const [geoState, setGeoState] = useState({
     ip: "",
