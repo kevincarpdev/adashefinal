@@ -42,7 +42,7 @@ import Link from 'next/link'
 // import required modules
 import { FreeMode, Pagination, A11y } from "swiper";
 
-// import Ramper from "../components/Ramper";
+import Ramper from "../components/Ramper";
 
 const Home = ({ data }) => {
   const [stickyNav, setStickyNav] = useState(false)
@@ -391,7 +391,7 @@ const Home = ({ data }) => {
           }
         </section>
         <section id="exchange">
-          <span className='subheader'><h3>Need MATIC? Exchange here</h3></span>
+          <span className='subheader'><h3>Need MATIC? Buy &amp; Exchange here</h3></span>
           <div className="exchange">
             <BsCurrencyExchange />
           </div>
@@ -405,14 +405,26 @@ const Home = ({ data }) => {
               {!isAuthenticated ? <Account /> : <></>}
             </motion.button>
             :
-            <motion.button
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 1.0 }}
-              className="btn"
-              onClick={() => setIsModalVisible(true)}
-            >
-              Exchange
-            </motion.button>
+            <>
+              <motion.button
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 1.0 }}
+                className="btn"
+                onClick={() => setIsBuyModalVisible(true)}
+              >
+                Buy
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 1.0 }}
+                className="btn"
+                onClick={() => setIsModalVisible(true)}
+              >
+                Exchange
+              </motion.button>
+
+            </>
+
           }
         </section>
 
@@ -663,8 +675,7 @@ const Home = ({ data }) => {
           }}
           bodyStyle={{ padding: "15px" }}
         >
-          {/* <Ramper /> */}
-          <p className="coming-soon">Coming Soon</p>
+          <Ramper />
         </Card>
       </Modal>
       <div id="notification">
