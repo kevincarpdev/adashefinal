@@ -3,8 +3,9 @@ import cn from 'classnames'
 import Head from "next/head";
 import { useMoralis } from "react-moralis";
 import { Card, Modal } from "antd";
-import Particles from "react-tsparticles";
+import Particles from "react-particles";
 import { loadFull } from "tsparticles";
+import { useCallback } from "react";
 import mainLogo from '../public/logo.png'
 import menuLogo from '../public/menuLogo.png'
 import Image from 'next/image'
@@ -113,10 +114,18 @@ const Home = ({ data }) => {
         });
     }
   }
+  const particlesInit = useCallback(async (engine) => {
+    console.log(engine);
+    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    await loadFull(engine);
+  }, []);
 
-  const particlesInit = async (main) => {
-    await loadFull(main);
-  };
+  const particlesLoaded = useCallback(async (container) => {
+    await console.log(container);
+  }, []);
+
 
   const data01 = [
     { name: 'Token Sales', value: 21.78 },
@@ -226,6 +235,7 @@ const Home = ({ data }) => {
       <Particles
         id="tsparticles"
         init={particlesInit}
+        loaded={particlesLoaded}
         options={{
           fullScreen: {
             enable: true,

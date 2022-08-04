@@ -62,6 +62,7 @@
     "react-ipgeolocation": "^1.4.0",
     "react-minimal-pie-chart": "^8.3.0",
     "react-moralis": "^1.4.0",
+    "react-particles": "^2.1.4",
     "react-router": "^5.2.1",
     "react-router-dom": "^5.3.0",
     "react-scripts": "^5.0.0",
