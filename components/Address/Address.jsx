@@ -62,7 +62,7 @@ function Address(props) {
   },  [presale]);
 
   useEffect(() => {
-      setTokenAddress('0x5A783d4C3D74174c0D39f28B925a834C9Ff84887');
+      setTokenAddress('0xE5c353Bd143adde3541aa8d220e66B153e8231dC');
   },  [tokenAddress]);
 
   if (!account || !isAuthenticated) return null;
