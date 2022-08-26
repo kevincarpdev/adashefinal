@@ -58,11 +58,11 @@ function Address(props) {
   }, [account, isAuthenticated, props]);
 
   useEffect(() => {
-      setPresale('0x920b3B284FF04Eb680b230dC65A52F12567D66f5');
+      setPresale('0x5A783d4C3D74174c0D39f28B925a834C9Ff84887');
   },  [presale]);
 
   useEffect(() => {
-      setTokenAddress('0xE5c353Bd143adde3541aa8d220e66B153e8231dC');
+      setTokenAddress('0x5A783d4C3D74174c0D39f28B925a834C9Ff84887');
   },  [tokenAddress]);
 
   if (!account || !isAuthenticated) return null;
