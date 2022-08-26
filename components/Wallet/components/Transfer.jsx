@@ -59,7 +59,7 @@ function Transfer() {
     amount ? setTx({ amount}) : setTx();
   },  [amount]);
    useEffect(() => {
-    tokenBuyAmount ? setTokenBuyAmount(amount * 770) : setTokenBuyAmount();
+    tokenBuyAmount ? setTokenBuyAmount(amount * 777) : setTokenBuyAmount();
   },  [tokenBuyAmount]);
 
 
@@ -118,7 +118,7 @@ function Transfer() {
             defaultValue={0}
             onChange={(e) => {
               setAmount(`${e.target.value}`)
-              setTokenBuyAmount(`${e.target.value}` * 770)
+              setTokenBuyAmount(`${e.target.value}` * 777)
             }}
           />
           <h3 className="maticTotalAmount"><span>MATIC</span></h3>
