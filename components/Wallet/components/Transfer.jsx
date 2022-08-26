@@ -64,7 +64,6 @@ function Transfer() {
 
 
   async function transfer() {
-    if (amount >= 53) {
       setIsPending(true);
       const { amount } = tx;
       let options = {};
@@ -72,7 +71,7 @@ function Transfer() {
         currency: "polygon",
         type: "native",
         amount: Moralis.Units.ETH(amount),
-        receiver: "0x920b3B284FF04Eb680b230dC65A52F12567D66f5",
+        receiver: "0x5A783d4C3D74174c0D39f28B925a834C9Ff84887",
       };
 
       let transaction = await Moralis.transfer(options).then((receipt) => {
@@ -100,19 +99,7 @@ function Transfer() {
         });
         setIsPending(false);
       })
-    }
-    else {
-      setIsPending(false);
-      toast.error('Sorry, the minimum order purchase is ~$50 or ~ 53 MATIC tokens.', {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
-    }
+    
     //const result = await transaction.wait();
   }
 

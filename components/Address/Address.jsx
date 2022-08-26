@@ -168,13 +168,13 @@ function Address(props) {
             {props.copyable && (isTokenClicked ? <Check /> : <CopyToken />)}
           </div>
         </div>
-        <div style={{ ...styles.token}}>
+        {/* <div style={{ ...styles.token}}>
           <span>Presale</span>
           <div style={{ ...styles.tokenAddress}}>
             <p>{props.size ? getEllipsisTxt(presale, props.size) : presale}</p>
             {props.copyable && (isPresaleClicked ? <Check /> : <CopyPresale />)}
           </div>
-        </div>
+        </div> */}
       </div>
     </>
     );
