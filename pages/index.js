@@ -309,7 +309,7 @@ const Home = ({ data }) => {
               <h1>Buy Adashe (ADSE)</h1>
               <div>
                 <span className='subheader'>Adashe is the primary utility token of our ecosystem and will immediately enable you to participate in our staking rewards program as well as our liquidity mining program. All pools will be deployed when the token sale ends.</span>
-                <p><span className="price"><span className="highlight">1 MATIC = 770 ADSE</span></span></p>
+                <p><span className="price"><span className="highlight">1 MATIC = 777 ADSE</span></span></p>
 
                 {isAuthenticated ?
                   <>
@@ -374,7 +374,7 @@ const Home = ({ data }) => {
                 whileHover={{ scale: 1.1 }}
               >
                 <h3>Terms</h3>
-                <p>The contract accepts MATIC and the starting token price will be 770 ADSE per MATIC.</p>
+                <p>The contract accepts MATIC and the starting token price will be 777 ADSE per MATIC.</p>
               </motion.div>
               <motion.div
                 className="card"
